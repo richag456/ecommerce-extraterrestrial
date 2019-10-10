@@ -41,46 +41,21 @@
 
 						<!-- Content -->
 							<section id="content">
-								<a href="#" class="image fit"><img src="images/galaxy2.png"  alt="" /></a>
-								<div class="form">
-                      <div id="signup">   
-                        <h1>Sign Up for Free</h1>
+                <a href="#" class="image fit"><img src="images/galaxy2.png"  alt="" /></a>
+                
+                <form id="signup" action="signup.php" method="POST"> 
+                  First name: <input type="text" name="firstname"> <br> 
+                  Last name: <input type="text" name="lastname"> <br> 
+                  Email: <input type="text" name="email"> <br> 
+                  Password:<input type="text" name="password"> 
+
+                  <input type="hidden" name="form_submitted" value="1" />
+          
+                  <input type="submit" value="Submit">
+
+								  <p class="forgot"><a href="login.html">Already Have an Account? Login!</a></p>
                         
-                        <form action="/" method="post">
-                        
-                        <div class="top-row">
-                          <div class="field-wrap">
-                            <label>
-                              First Name<span class="req">*</span>
-                            </label>
-                            <input type="text" required autocomplete="off" />
-                          </div>
-                      
-                          <div class="field-wrap">
-                            <label>
-                              Last Name<span class="req">*</span>
-                            </label>
-                            <input type="text"required autocomplete="off"/>
-                          </div>
-                        </div>
-              
-                        <div class="field-wrap">
-                          <label>
-                            Email Address<span class="req">*</span>
-                          </label>
-                          <input type="email"required autocomplete="off"/>
-                        </div>
-                        
-                        <div class="field-wrap">
-                          <label>
-                            Set A Password<span class="req">*</span>
-                          </label>
-                          <input type="password"required autocomplete="off"/>
-                        </div>
-                        <p class="forgot"><a href="login.html">Already Have an Account? Login!</a></p>
-                        <button type="submit" class="button button-primary"/>Get Started</button>
-                        
-                        </form>
+              </form>
               </div> <!-- /form -->
 							</section>
 
