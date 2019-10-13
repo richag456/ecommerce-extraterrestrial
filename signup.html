@@ -44,12 +44,12 @@
                 <a href="#" class="image fit"><img src="images/galaxy2.png"  alt="" /></a>
                 
                 <form id="signup" action="signup.php" method="POST"> 
-                  First name: <input type="text" name="firstname" required pattern = "^[a-zA-Z]+$"> <br> 
-                  Last name: <input type="text" name="lastname" required pattern = "^[a-zA-Z]+-*[a-zA-Z]*$"> <br> 
-                  Email: <input type="text" name="email" required pattern = "^.+@+.+\.+.+$"> <br> 
+                  First name: <input type="text" name="firstname" required pattern = "^[a-zA-Z]+$" value = ""  title = "At least one letter, nothing besides letters"> <br> 
+                  Last name: <input type="text" name="lastname" required pattern = "^[a-zA-Z]+-*[a-zA-Z]*$" value = "" title = "At least one letter, nothing besides letters except for a hyphen"> <br> 
+                  Email: <input type="text" name="email" required pattern = "^.+@+.+\.+.+$" value = "" title = "At least one @ symbol, at least one . symbol, at least one character, before, after, and between each symbol" > <br> 
 				  Password: <input type = "text" name = "password" required> <br>
-				  Address: <input type = "text" name = "address" required pattern = "^\d+.*[a-zA-Z]+$"> <br>
-				  City: <input type = "text" name = "city" required pattern = "^[a-zA-Z]+$"> <br>
+				  Address: <input type = "text" name = "address" required pattern = "^\d+.*[a-zA-Z]+$" value = "" title = "At least one number followed by at least one letter"> <br>
+				  City: <input type = "text" name = "city" required pattern = "^[a-zA-Z]+$" value = "" title = "At least one letter, nothing besides letters"> <br>
 				  State: <select name = "State" required>
 							<option value = "">Make a Selection</option>
 							<option value="AL">Alabama</option>
@@ -104,7 +104,7 @@
 							<option value="WI">Wisconsin</option>
 							<option value="WY">Wyoming</option>
 						 </select> <br>
-				  Zip-Code <input type = "text" name = "zipCode" required pattern = "^\d{5}$"> <br>
+				  Zip-Code <input type = "text" name = "zipCode" required pattern = "^\d{5}$" value = "" title = "Exactly 5 numbers, nothing else"> <br>
 				  <input type="hidden" name="form_submitted" value="1" />
           
                   <input type="submit" value="Submit">
