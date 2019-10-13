@@ -41,46 +41,77 @@
 
 						<!-- Content -->
 							<section id="content">
-								<a href="#" class="image fit"><img src="images/galaxy2.png"  alt="" /></a>
-								<div class="form">
-                      <div id="signup">   
-                        <h1>Sign Up for Free</h1>
+                <a href="#" class="image fit"><img src="images/galaxy2.png"  alt="" /></a>
+                
+                <form id="signup" action="signup.php" method="POST"> 
+                  First name: <input type="text" name="firstname" required pattern = "^[a-zA-Z]+$" value = ""  title = "At least one letter, nothing besides letters"> <br> 
+                  Last name: <input type="text" name="lastname" required pattern = "^[a-zA-Z]+-*[a-zA-Z]*$" value = "" title = "At least one letter, nothing besides letters except for a hyphen"> <br> 
+                  Email: <input type="text" name="email" required pattern = "^.+@+.+\.+.+$" value = "" title = "At least one @ symbol, at least one . symbol, at least one character, before, after, and between each symbol" > <br> 
+				  Password: <input type = "text" name = "password" required> <br>
+				  Address: <input type = "text" name = "address" required pattern = "^\d+.*[a-zA-Z]+$" value = "" title = "At least one number followed by at least one letter"> <br>
+				  City: <input type = "text" name = "city" required pattern = "^[a-zA-Z]+$" value = "" title = "At least one letter, nothing besides letters"> <br>
+				  State: <select name = "State" required>
+							<option value = "">Make a Selection</option>
+							<option value="AL">Alabama</option>
+							<option value="AK">Alaska</option>
+							<option value="AZ">Arizona</option>
+							<option value="AR">Arkansas</option>
+							<option value="CA">California</option>
+							<option value="CO">Colorado</option>
+							<option value="CT">Connecticut</option>
+							<option value="DE">Delaware</option>
+							<option value="DC">District Of Columbia</option>
+							<option value="FL">Florida</option>
+							<option value="GA">Georgia</option>
+							<option value="HI">Hawaii</option>
+							<option value="ID">Idaho</option>
+							<option value="IL">Illinois</option>
+							<option value="IN">Indiana</option>
+							<option value="IA">Iowa</option>
+							<option value="KS">Kansas</option>
+							<option value="KY">Kentucky</option>
+							<option value="LA">Louisiana</option>
+							<option value="ME">Maine</option>
+							<option value="MD">Maryland</option>
+							<option value="MA">Massachusetts</option>
+							<option value="MI">Michigan</option>
+							<option value="MN">Minnesota</option>
+							<option value="MS">Mississippi</option>
+							<option value="MO">Missouri</option>
+							<option value="MT">Montana</option>
+							<option value="NE">Nebraska</option>
+							<option value="NV">Nevada</option>
+							<option value="NH">New Hampshire</option>
+							<option value="NJ">New Jersey</option>
+							<option value="NM">New Mexico</option>
+							<option value="NY">New York</option>
+							<option value="NC">North Carolina</option>
+							<option value="ND">North Dakota</option>
+							<option value="OH">Ohio</option>
+							<option value="OK">Oklahoma</option>
+							<option value="OR">Oregon</option>
+							<option value="PA">Pennsylvania</option>
+							<option value="RI">Rhode Island</option>
+							<option value="SC">South Carolina</option>
+							<option value="SD">South Dakota</option>
+							<option value="TN">Tennessee</option>
+							<option value="TX">Texas</option>
+							<option value="UT">Utah</option>
+							<option value="VT">Vermont</option>
+							<option value="VA">Virginia</option>
+							<option value="WA">Washington</option>
+							<option value="WV">West Virginia</option>
+							<option value="WI">Wisconsin</option>
+							<option value="WY">Wyoming</option>
+						 </select> <br>
+				  Zip-Code <input type = "text" name = "zipCode" required pattern = "^\d{5}$" value = "" title = "Exactly 5 numbers, nothing else"> <br>
+				  <input type="hidden" name="form_submitted" value="1" />
+          
+                  <input type="submit" value="Submit">
+
+								  <p class="forgot"><a href="login.html">Already Have an Account? Login!</a></p>
                         
-                        <form action="/" method="post">
-                        
-                        <div class="top-row">
-                          <div class="field-wrap">
-                            <label>
-                              First Name<span class="req">*</span>
-                            </label>
-                            <input type="text" required autocomplete="off" />
-                          </div>
-                      
-                          <div class="field-wrap">
-                            <label>
-                              Last Name<span class="req">*</span>
-                            </label>
-                            <input type="text"required autocomplete="off"/>
-                          </div>
-                        </div>
-              
-                        <div class="field-wrap">
-                          <label>
-                            Email Address<span class="req">*</span>
-                          </label>
-                          <input type="email"required autocomplete="off"/>
-                        </div>
-                        
-                        <div class="field-wrap">
-                          <label>
-                            Set A Password<span class="req">*</span>
-                          </label>
-                          <input type="password"required autocomplete="off"/>
-                        </div>
-                        <p class="forgot"><a href="login.html">Already Have an Account? Login!</a></p>
-                        <button type="submit" class="button button-primary"/>Get Started</button>
-                        
-                        </form>
+              </form>
               </div> <!-- /form -->
 							</section>
 
