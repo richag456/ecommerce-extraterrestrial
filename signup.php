@@ -6,6 +6,7 @@ $db_connection = pg_connect("host=ec2-174-129-241-14.compute-1.amazonaws.com por
 if($db_connection === false){
     die("ERROR: Could not connect. " . mysqli_connect_error());
 }
+if( isset($_POST['Submit']) ){
 	$firstname = $_POST['firstname'];
 	$lastname = $_POST['lastname'];
 	$email = $_POST['email'];
@@ -14,16 +15,23 @@ if($db_connection === false){
 	$address = $_POST['address'];
 	$city = $_POST['city'];
     $state = $_POST['state'];
-    $zipcode = $_POST['zipcode'];
+    $zipcode = $_POST['zipCode'];
 	
-	#if(pg_result(pg_query("SELECT * FROM siteusers WHERE 'email' =  '$username'"),0) >= 1){
-		$query = "INSERT INTO siteUsers VALUES ('$firstname', '$lastname', $email', '$hashed_password', '$address', '$city', '$state', '$zipcode')";
+	$getusers = pg_query($db_connection, "SELECT * FROM \"siteUsers\" where email='$email'");
+	$getrows = pg_affected_rows($getusers);
+
+	if($getrows >= 1){
+		$txt = "User already exists! Please log in.";
+		#echo "<h2>" . $txt . "</h2>" ;
+		header('Location: login.html');
+		exit();
+	}
+	else{
+		$query = "INSERT INTO \"siteUsers\" VALUES ('$firstname', '$lastname', '$email', '$hashed_password', '$address', '$city', '$state', '$zipcode')";
 		$result = pg_query($db_connection, $query);
-	#}
-	#else{
-		#header('Location: login.html');
-     	#exit();
-	#}
+	}
+	
+}
 
 // Close connection
 pg_close($db_connection);
@@ -135,10 +143,10 @@ pg_close($db_connection);
 							<option value="WI">Wisconsin</option>
 							<option value="WY">Wyoming</option>
 						 </select> <br>
-				  Zip-Code <input type = "text" name = "zipcode" required pattern = "^\d{5}$" value = "" title = "Exactly 5 numbers, nothing else"> <br>
+				  Zip-Code <input type = "text" name = "zipCode" required pattern = "^\d{5}$" value = "" title = "Exactly 5 numbers, nothing else"> <br>
 				  <input type="hidden" name="form_submitted" value="1" />
           
-                  <input type="submit" value="Submit">
+                  <input type="submit" name="Submit" value="Submit">
 
 								  <p class="forgot"><a href="login.html">Already Have an Account? Login!</a></p>
                         
