@@ -1,6 +1,6 @@
 
 <?php
-$db_connection = pg_connect("host=ec2-174-129-241-14.compute-1.amazonaws.com port=5432 dbname=d35s6fdts9mtqe password=be7126872bcd36c2bc4bde1163ba5a72243fb144652c0e0b110d388e7efee0be");
+$db_connection = pg_connect("host=ec2-174-129-241-14.compute-1.amazonaws.com port=5432 dbname=d35s6fdts9mtqe user=crxjiiplfrwncf password=be7126872bcd36c2bc4bde1163ba5a72243fb144652c0e0b110d388e7efee0be");
  
 // Check connection
 if($db_connection === false){
@@ -16,14 +16,14 @@ if($db_connection === false){
     $state = $_POST['state'];
     $zipcode = $_POST['zipcode'];
 	
-	if(mysqul_result(mysql_query("SELECT * FROM siteusers WHERE 'email' =  '$username'"),0) >= 1){
-		$query = "INSERT INTO siteusers VALUES ('$firstname', '$lastname', $email', '$hashed_password', '$address', '$city', '$state', '$zipcode')";
+	#if(pg_result(pg_query("SELECT * FROM siteusers WHERE 'email' =  '$username'"),0) >= 1){
+		$query = "INSERT INTO siteUsers VALUES ('$firstname', '$lastname', $email', '$hashed_password', '$address', '$city', '$state', '$zipcode')";
 		$result = pg_query($db_connection, $query);
-	}
-	else{
-		header('Location: login.html');
-     	exit();
-	}
+	#}
+	#else{
+		#header('Location: login.html');
+     	#exit();
+	#}
 
 // Close connection
 pg_close($db_connection);
@@ -81,7 +81,7 @@ pg_close($db_connection);
 				  Password: <input type = "text" name = "password" required> <br>
 				  Address: <input type = "text" name = "address" required pattern = "^\d+.*[a-zA-Z]+$" value = "" title = "At least one number followed by at least one letter"> <br>
 				  City: <input type = "text" name = "city" required pattern = "^[a-zA-Z]+$" value = "" title = "At least one letter, nothing besides letters"> <br>
-				  State: <select name = "State" required>
+				  State: <select name = "state" required>
 							<option value = "">Make a Selection</option>
 							<option value="AL">Alabama</option>
 							<option value="AK">Alaska</option>
@@ -135,7 +135,7 @@ pg_close($db_connection);
 							<option value="WI">Wisconsin</option>
 							<option value="WY">Wyoming</option>
 						 </select> <br>
-				  Zip-Code <input type = "text" name = "zipCode" required pattern = "^\d{5}$" value = "" title = "Exactly 5 numbers, nothing else"> <br>
+				  Zip-Code <input type = "text" name = "zipcode" required pattern = "^\d{5}$" value = "" title = "Exactly 5 numbers, nothing else"> <br>
 				  <input type="hidden" name="form_submitted" value="1" />
           
                   <input type="submit" value="Submit">
