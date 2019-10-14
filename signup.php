@@ -6,7 +6,6 @@ $db_connection = pg_connect("host=ec2-174-129-241-14.compute-1.amazonaws.com por
 if($db_connection === false){
     die("ERROR: Could not connect. " . mysqli_connect_error());
 }
-if (isset($_POST["btnSubmit"]) && isset($_POST['usernameInput']) && isset($_POST['passwordInput']) && isset($_POST['email']) && isset($_POST['address']) && isset($_POST['city']) && isset($_POST['state']) && isset($_POST['zipcode'])){
 	$firstname = $_POST['firstname'];
 	$lastname = $_POST['lastname'];
 	$email = $_POST['email'];
@@ -18,16 +17,16 @@ if (isset($_POST["btnSubmit"]) && isset($_POST['usernameInput']) && isset($_POST
     $zipcode = $_POST['zipcode'];
 	
 	if(mysqul_result(mysql_query("SELECT * FROM siteusers WHERE 'email' =  '$username'"),0) >= 1){
-		$query = "INSERT INTO siteusers VALUES (firstname, lastname, email, address, city, usstate, zipcode, passwordhash) 
-		VALUES ('$firstname' '$lastname' $email', '$address', '$city', '$state', '$zipcode', '$hashed_password')";
+		$query = "INSERT INTO siteusers VALUES ('$firstname', '$lastname', $email', '$hashed_password', '$address', '$city', '$state', '$zipcode')";
 		$result = pg_query($db_connection, $query);
 	}
 	else{
-		
+		header('Location: login.html');
+     	exit();
 	}
 
 // Close connection
-mysqli_close($db_connection);
+pg_close($db_connection);
 ?>
 
 <!DOCTYPE HTML>
