@@ -1,10 +1,16 @@
 
 <?php
+// Import PHPMailer classes into the global namespace
+// These must be at the top of your script, not inside a function
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+//Load composer's autoloader
+require 'vendor/autoload.php';
 $db_connection = pg_connect("host=ec2-174-129-241-14.compute-1.amazonaws.com port=5432 dbname=d35s6fdts9mtqe user=crxjiiplfrwncf password=be7126872bcd36c2bc4bde1163ba5a72243fb144652c0e0b110d388e7efee0be");
  
 // Check connection
 if($db_connection === false){
-    die("ERROR: Could not connect. " . mysqli_connect_error());
+    die("ERROR: Could not connect. ");
 }
 if( isset($_POST['Submit']) ){
 	$firstname = $_POST['firstname'];
