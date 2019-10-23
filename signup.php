@@ -47,22 +47,14 @@ if($account_created){
 	$mail = new PHPMailer(TRUE);
       $mail->isSMTP();
    
-       /* SMTP server address. */
-       $mail->Host = 'smtp.gmail.com';
-       /* Use SMTP authentication. */
-       $mail->SMTPAuth = TRUE;
-       
-       /* Set the encryption system. */
-       $mail->SMTPSecure = 'tls';
-       
-       /* SMTP authentication username. */
-       $mail->Username = 'ecomm.extraterrestrial@gmail.com';
-       
-       /* SMTP authentication password. */
-       $mail->Password = 'AlfWeaver2019';
-       
-       /* Set the SMTP port. */
-       $mail->Port = 587;
+	  $mail->isSMTP();                                            // Send using SMTP
+	  $mail->Host       = 'smtp.gmail.com';                    // Set the SMTP server to send through
+	  $mail->SMTPAuth   = true;                                   // Enable SMTP authentication
+	  $mail->Username   = 'ecomm.extraterrestrial@example.com';                     // SMTP username
+	  $mail->Password   = 'AlfWeaver2019';                               // SMTP password
+	  $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` also accepted
+	  $mail->Port       = 587;                                    // TCP port to connect to
+  
    
       /* Open the try/catch block. */
       try {
