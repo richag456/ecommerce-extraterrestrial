@@ -7,7 +7,6 @@ use PHPMailer\PHPMailer\Exception;
 //Load composer's autoloader
 require 'vendor/autoload.php';
 $db_connection = pg_connect("host=ec2-174-129-241-14.compute-1.amazonaws.com port=5432 dbname=d35s6fdts9mtqe user=crxjiiplfrwncf password=be7126872bcd36c2bc4bde1163ba5a72243fb144652c0e0b110d388e7efee0be");
-$account_created = FALSE;
 // Check connection
 if($db_connection === false){
     die("ERROR: Could not connect. ");
@@ -35,7 +34,30 @@ if( isset($_POST['Submit']) ){
 	else{
 		$query = "INSERT INTO \"siteUsers\" VALUES ('$firstname', '$lastname', '$email', '$hashed_password', '$address', '$city', '$state', '$zipcode')";
 		$result = pg_query($db_connection, $query);
-		$account_created = TRUE;
+		$mail = new PHPMailer(TRUE);
+   
+	  	$mail->isSMTP();                                            // Send using SMTP
+	  	$mail->Host 	  = gethostbyname('smtp.gmail.com');                  // Set the SMTP server to send through
+	  	$mail->SMTPAuth   = true;                                   // Enable SMTP authentication
+	  	$mail->Username   = 'ecomm.extraterrestrial@example.com';                     // SMTP username
+	  	$mail->Password   = 'AlfWeaver2019';                               // SMTP password
+      	$mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
+	  	$mail->Port       = 587;                                    // TCP port to connect to
+        
+        $mail->setFrom('ecomm.extraterrestrial@gmail.com', 'Extraterrestrial');
+        $mail->addAddress($email);
+        $mail->Subject = 'Welcome to Extraterrestrial!';
+        $mail->Body = 'Thanks for opening up your galaxy with Extraterrestrial. We look forward to working on your interplanetary needs!';
+        $mail->send();
+		if(!$mail->Send()) {
+			$error = 'Mail error: '.$mail->ErrorInfo; 
+			echo $error;
+		} else {
+			$error = 'Message sent!';
+			echo $error;
+		}
+		header('Location: index.html');
+		exit();
 	}
 	
 }
@@ -43,37 +65,6 @@ if( isset($_POST['Submit']) ){
 // Close connection
 pg_close($db_connection);
 
-if($account_created){
-	$mail = new PHPMailer(TRUE);
-   
-	  $mail->isSMTP();                                            // Send using SMTP
-	  $mail->Host       = 'smtp.gmail.com';                    // Set the SMTP server to send through
-	  $mail->SMTPAuth   = true;                                   // Enable SMTP authentication
-	  $mail->Username   = 'ecomm.extraterrestrial@example.com';                     // SMTP username
-	  $mail->Password   = 'AlfWeaver2019';                               // SMTP password
-      $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
-	  $mail->Port       = 587;                                    // TCP port to connect to
-  
-   
-      /* Open the try/catch block. */
-      try {
-         $mail->setFrom('ecomm.extraterrestrial@gmail.com', 'Extraterrestrial');
-         $mail->addAddress($email);
-         $mail->Subject = 'Welcome to Extraterrestrial!';
-         $mail->Body = 'Thanks for opening up your galaxy with Extraterrestrial. We look forward to working on your interplanetary needs!';
-         $mail->send();
-      }
-      catch (Exception $e)
-      {
-         /* PHPMailer exception. */
-         echo $e->errorMessage();
-      }
-      catch (\Exception $e)
-      {
-         /* PHP exception (note the backslash to select the global namespace Exception class). */
-         echo $e->getMessage();
-	  }
-	}
 ?>
 
 <!DOCTYPE HTML>
