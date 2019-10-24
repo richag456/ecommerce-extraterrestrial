@@ -34,8 +34,9 @@ if( isset($_POST['Submit']) ){
 	else{
 		$query = "INSERT INTO \"siteUsers\" VALUES ('$firstname', '$lastname', '$email', '$hashed_password', '$address', '$city', '$state', '$zipcode')";
 		$result = pg_query($db_connection, $query);
+		
 		$mail = new PHPMailer(TRUE);
-   
+		try{
 	  	$mail->isSMTP();                                            // Send using SMTP
 	  	$mail->Host 	  = gethostbyname('smtp.gmail.com');                  // Set the SMTP server to send through
 	  	$mail->SMTPAuth   = true;                                   // Enable SMTP authentication
@@ -49,13 +50,18 @@ if( isset($_POST['Submit']) ){
         $mail->Subject = 'Welcome to Extraterrestrial!';
         $mail->Body = 'Thanks for opening up your galaxy with Extraterrestrial. We look forward to working on your interplanetary needs!';
         $mail->send();
-		if(!$mail->Send()) {
-			$error = 'Mail error: '.$mail->ErrorInfo; 
-			echo $error;
-		} else {
-			$error = 'Message sent!';
-			echo $error;
-		}
+		
+	}
+	catch (Exception $e)
+       {
+          /* PHPMailer exception. */
+          echo $e->errorMessage();
+       }
+       catch (\Exception $e)
+       {
+          /* PHP exception (note the backslash to select the global namespace Exception class). */
+          echo $e->getMessage();
+ 	  }
 		
 	}
 	
