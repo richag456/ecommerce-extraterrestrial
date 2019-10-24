@@ -56,8 +56,7 @@ if( isset($_POST['Submit']) ){
 			$error = 'Message sent!';
 			echo $error;
 		}
-		header('Location: index.html');
-		exit();
+		
 	}
 	
 }
