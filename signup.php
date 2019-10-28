@@ -1,4 +1,3 @@
-
 <?php
 // Import PHPMailer classes into the global namespace
 // These must be at the top of your script, not inside a function
@@ -24,7 +23,6 @@ if( isset($_POST['Submit']) ){
 	
 	$getusers = pg_query($db_connection, "SELECT * FROM \"siteUsers\" where email='$email'");
 	$getrows = pg_affected_rows($getusers);
-
 	if($getrows >= 1){
 		$txt = "User already exists! Please log in instead!.";
 		echo  $txt ;
@@ -41,10 +39,8 @@ if( isset($_POST['Submit']) ){
 		$mail->SMTPAuth   = true;                                   // Enable SMTP authentication
 		$mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
 		$mail->Port       = 587;                                    // TCP port to connect to
-
 		$mail->Username   = "ecomm.extraterrestrial@gmail.com";                     // SMTP username
 		$mail->Password   = "AlfWeaver2019";                               // SMTP password
-
         $mail->setFrom('ecomm.extraterrestrial@gmail.com', 'Extraterrestrial');
         $mail->addAddress($email);
         $mail->Subject = 'Welcome to Extraterrestrial!';
@@ -66,10 +62,8 @@ if( isset($_POST['Submit']) ){
 	}
 	
 }
-
 // Close connection
 pg_close($db_connection);
-
 ?>
 
 <!DOCTYPE HTML>
