@@ -42,7 +42,15 @@ if( isset($_POST['Submit']) ){
 	  	$mail->SMTPAuth   = true;                                   // Enable SMTP authentication
 		$mail->SMTPDebug = 2;  
 		$mail->Username   = 'ecomm.extraterrestrial@example.com';                     // SMTP username
-	  	$mail->Password   = 'AlfWeaver2019';                               // SMTP password
+		$mail->Password   = 'AlfWeaver2019';                               // SMTP password
+		$mail->SMTPOptions = array(
+			'ssl' => array(
+				'verify_peer' => false,
+				'verify_peer_name' => false,
+				'allow_self_signed' => true
+			)
+		);
+		$mail->SMTPAutoTLS = false;  
       	$mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
 	  	$mail->Port       = 587;                                    // TCP port to connect to
         
