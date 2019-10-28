@@ -26,10 +26,9 @@ if( isset($_POST['Submit']) ){
 	$getrows = pg_affected_rows($getusers);
 
 	if($getrows >= 1){
-		$txt = "User already exists! Please log in.";
-		#echo "<h2>" . $txt . "</h2>" ;
-		header('Location: login.html');
-		exit();
+		$txt = "User already exists! Please log in instead!.";
+		echo "<h2>" . $txt . "</h2>" ;
+		
 	}
 	else{
 		$query = "INSERT INTO \"siteUsers\" VALUES ('$firstname', '$lastname', '$email', '$hashed_password', '$address', '$city', '$state', '$zipcode')";
@@ -38,22 +37,14 @@ if( isset($_POST['Submit']) ){
 		$mail = new PHPMailer(TRUE);
 		try{
 	  	$mail->isSMTP();                                            // Send using SMTP
-	  	$mail->Host 	  = gethostbyname('smtp.gmail.com');                  // Set the SMTP server to send through
+	  	$mail->Host 	  = "tls://smtp.gmail.com";                  // Set the SMTP server to send through
 	  	$mail->SMTPAuth   = true;                                   // Enable SMTP authentication
-		$mail->SMTPDebug = 2;  
-		$mail->Username   = 'ecomm.extraterrestrial@example.com';                     // SMTP username
-		$mail->Password   = 'AlfWeaver2019';                               // SMTP password
-		$mail->SMTPOptions = array(
-			'ssl' => array(
-				'verify_peer' => false,
-				'verify_peer_name' => false,
-				'allow_self_signed' => true
-			)
-		);
-		$mail->SMTPAutoTLS = false;  
-      	$mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
-	  	$mail->Port       = 587;                                    // TCP port to connect to
-        
+		$mail->SMTPDebug = 4; 
+		$mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
+		$mail->Port       = 587;                                    // TCP port to connect to
+		$mail->Username   = "ecomm.extraterrestrial@example.com";                     // SMTP username
+		$mail->Password   = "AlfWeaver2019";                               // SMTP password
+
         $mail->setFrom('ecomm.extraterrestrial@gmail.com', 'Extraterrestrial');
         $mail->addAddress($email);
         $mail->Subject = 'Welcome to Extraterrestrial!';
