@@ -6,7 +6,7 @@
 -->
 <html>
 	<head>
-		<title>Login Or Sign Up</title>
+		<title>Products</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
@@ -36,33 +36,57 @@
 				<div id="main" class="wrapper style1">
 					<div class="container">
 						<header class="major">
-							<h2>Login</h2>
-							<p>Welcome Back! Login to Continue Your Journey Today!</p>
+							<h2>Our Products</h2>
+							<!--<p></p> -->
 						</header>
 
 						<!-- Content -->
-							<section id="content">
-								<a href="#" class="image fit"><img src="images/galaxy2.png"  alt="" /></a>
-								<div class="form">                      
-                      <div id="login"> 
-						<form id="login" action="login.php" method="POST"> 
-							Email: <input type="text" name="email"> <br> 
-							Password:<input type="text" name="password"> 
-				  
-							<input type="hidden" name="form_submitted" value="1" />
-							
-							<input type="submit" value="Submit">  
-                        
-                        <p class="forgot"><a href="#">Forgot Password?</a></p>
-                        <p class="forgot"><a href="signup.php">Dont Have an Account? Sign Up!</a></p>
-                    <!--    <button class="button button-primary">Log In</button>-->
-                        
-                        </form>
-              
-                      </div>                    
-              </div> <!-- /form -->
-							</section>
+						<section id="content">
+							<div class="row">
+								<div class="col-6 col-12-xsmall">
+									<div class="product-item">
+										<figure>
+											<center><img src="images/moon.jpg" width="200" height="200" alt="Image" class="img-fluid"></center>
+										</figure>
+										<div class="px-4">
+											<center>
+												<h3><a href="#">Round-Trip Moon Excursion</a></h3>
+												<ul class="alt">
+													<li>Walk in the footsteps of Armstrong and Aldrin! Be among the first to experience the Earth's right hand man.</li>
+													<li>0.005 BC</li>
+													<li><a href="#" class="button primary small fit">Purchase Now</a></li>
+												</ul>
+											</center>
+										</div>
+									</div>
+								</div>
+								<div class="col-6 col-12-xsmall">
+									<div class="product-item">
+										<figure>
+											<center><img src="images/mars.jpg" width="200" height="200" alt="Image" class="img-fluid"></center>
+										</figure>
+										<div class="px-4">
+												<center>
+														<h3><a href="#">Mars Venture</a></h3>
+														<ul class="alt">
+															<li>Visit Mars today! Experience the mysteries and magic of Earth's most friendly neighbor planet.</li>
+															<li>0.010 BC</li>
+															<li><a href="#" class="button primary small fit">Purchase Now</a></li>
+														</ul>
+												</center>
+										</div>
+									</div>
+								</div>
+							</div>
+								
+								<div class="row gtr-uniform gtr-50">
+									<div class="col-4 col-12-xsmall"><a href="signup.php" class="button primary fit">Sign Up Now</a></div>
+								</div>
+								
 
+						</section>
+
+						
 					</div>
 				</div>
 
@@ -76,7 +100,6 @@
 						<li>&copy; Extraterrestrial. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
 					</ul>
 				</footer>
-
 		</div>
 
 		<!-- Scripts -->
