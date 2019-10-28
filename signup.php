@@ -120,7 +120,7 @@ pg_close($db_connection);
                   Email: <input type="text" name="email" required pattern = "^.+@+.+\.+.+$" value = "" title = "At least one @ symbol, at least one . symbol, at least one character, before, after, and between each symbol" > <br> 
 				  Password: <input type = "text" name = "password" required> <br>
 				  Address: <input type = "text" name = "address" required pattern = "^\d+.*[a-zA-Z]+$" value = "" title = "At least one number followed by at least one letter"> <br>
-				  City: <input type = "text" name = "city" required pattern = "^[a-zA-Z]+\s*[a-zA-Z]*$" value = "" title = "At least one letter, nothing besides letters"> <br>
+				  City: <input type = "text" name = "city" required pattern = "^[a-zA-Z]+\s*[a-zA-Z]*$" value = "" title = "At least one letter, nothing besides letters and spaces"> <br>
 				  State: <select name = "state" required>
 							<option value = "">Make a Selection</option>
 							<option value="AL">Alabama</option>
