@@ -32,12 +32,12 @@ if( isset($_POST['submit']) ){
 	catch (Exception $e)
        {
           /* PHPMailer exception. */
-          echo $e->errorMessage();
+          #echo $e->errorMessage();
        }
        catch (\Exception $e)
        {
           /* PHP exception (note the backslash to select the global namespace Exception class). */
-          echo $e->getMessage();
+          #echo $e->getMessage();
  	  }
 		
 	}
