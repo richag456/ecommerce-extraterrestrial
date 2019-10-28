@@ -98,7 +98,7 @@ if( isset($_POST['submit']) ){
                     <h1>Contact Us</h1>
                     <form action="#" method="post">
                         <div class="form_settings">
-                            <p><span>Name</span><input class="contact" type="text" name="name" required pattern = "^[a-zA-Z]+\h*[a-zA-Z]*$" value = ""  title = "At least one letter, nothing besides letters" /></p>
+                            <p><span>Name</span><input class="contact" type="text" name="name" required pattern = "^[a-zA-Z]+\s*[a-zA-Z]*$" value = ""  title = "At least one letter, nothing besides letters and spaces" /></p>
                             <p><span>Email Address</span><input class="contact" type="text" name="email" required pattern = "^.+@+.+\.+.+$" value = "" title = "At least one @ symbol, at least one . symbol, at least one character, before, after, and between each symbol" /></p>
                             <p><span>Message</span><textarea class="contact textarea" rows="8" cols="50"
                                     name="message"></textarea></p>
