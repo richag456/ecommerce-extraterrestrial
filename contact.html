@@ -29,6 +29,7 @@
                             <a href="about.html">About Us</a>
                         </li>
                         <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="products.html">Products</a></li>
                         <li><a href="login.html" class="button primary">Login</a></li>
                     </ul>
                 </nav>
@@ -50,9 +51,8 @@
                     <h1>Contact Us</h1>
                     <form action="#" method="post">
                         <div class="form_settings">
-                            <p><span>Name</span><input class="contact" type="text" name="your_name" value="" /></p>
-                            <p><span>Email Address</span><input class="contact" type="text" name="your_email"
-                                    value="" /></p>
+                            <p><span>Name</span><input class="contact" type="text" name="your_name" required pattern = "^[a-zA-Z]+$" value = ""  title = "At least one letter, nothing besides letters" /></p>
+                            <p><span>Email Address</span><input class="contact" type="text" name="your_email" required pattern = "^.+@+.+\.+.+$" value = "" title = "At least one @ symbol, at least one . symbol, at least one character, before, after, and between each symbol" /></p>
                             <p><span>Message</span><textarea class="contact textarea" rows="8" cols="50"
                                     name="your_enquiry"></textarea></p>
                             <p style="padding-top: 15px"><span>&nbsp;</span><input class="submit" type="submit"
