@@ -27,7 +27,7 @@ if( isset($_POST['Submit']) ){
 
 	if($getrows >= 1){
 		$txt = "User already exists! Please log in instead!.";
-		echo "<h2>" . $txt . "</h2>" ;
+		echo  $txt ;
 		
 	}
 	else{
@@ -37,14 +37,14 @@ if( isset($_POST['Submit']) ){
 		$mail = new PHPMailer(TRUE);
 		try{
 	  	$mail->isSMTP();                                            // Send using SMTP
-	  	$mail->Host 	  = "smtp.gmail.com";                  // Set the SMTP server to send through
+	  	$mail->Host 	  = 'smtp.gmail.com';                  // Set the SMTP server to send through
 		$mail->SMTPAuth   = true;                                   // Enable SMTP authentication
 		$mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
 		$mail->Port       = 587;                                    // TCP port to connect to
 		$mail->SMTPDebug = 3; 
 
 		$mail->Username   = "ecomm.extraterrestrial@example.com";                     // SMTP username
-		$mail->Password   = "amgwsfcpgxhqrczn";                               // SMTP password
+		$mail->Password   = "AlfWeaver2019";                               // SMTP password
 
         $mail->setFrom('ecomm.extraterrestrial@gmail.com', 'Extraterrestrial');
         $mail->addAddress($email);
