@@ -41,7 +41,6 @@ if( isset($_POST['Submit']) ){
 		$mail->SMTPAuth   = true;                                   // Enable SMTP authentication
 		$mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
 		$mail->Port       = 587;                                    // TCP port to connect to
-		$mail->SMTPDebug = 3; 
 
 		$mail->Username   = "ecomm.extraterrestrial@gmail.com";                     // SMTP username
 		$mail->Password   = "AlfWeaver2019";                               // SMTP password
