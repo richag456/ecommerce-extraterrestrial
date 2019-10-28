@@ -26,8 +26,9 @@ if( isset($_POST['Submit']) ){
 	$getrows = pg_affected_rows($getusers);
 
 	if($getrows >= 1){
-		$txt = "User already exists! Please log in instead!.";
+		$txt = "<center><br><br><br><h3>User already exists! Please log in instead!</h3></center>";
 		echo  $txt ;
+		#trigger_error("User already exists! Please log in instead!", E_USER_ERROR);
 		
 	}
 	else{
@@ -50,17 +51,18 @@ if( isset($_POST['Submit']) ){
         $mail->Subject = 'Welcome to Extraterrestrial!';
         $mail->Body = 'Thanks for opening up your galaxy with Extraterrestrial. We look forward to working on your interplanetary needs!';
         $mail->send();
-		
+		header('Location: products.html');
+		exit();
 	}
 	catch (Exception $e)
        {
           /* PHPMailer exception. */
-          echo $e->errorMessage();
+          #echo $e->errorMessage();
        }
        catch (\Exception $e)
        {
           /* PHP exception (note the backslash to select the global namespace Exception class). */
-          echo $e->getMessage();
+          #echo $e->getMessage();
  	  }
 		
 	}
@@ -99,7 +101,7 @@ pg_close($db_connection);
                             <li>
                                 <a href="about.html">About Us</a>
                             </li>
-							<li><a href="contact.html">Contact Us</a></li>
+							<li><a href="contact.php">Contact Us</a></li>
 							<li><a href="products.html">Products</a></li>
                             <li><a href="login.html" class="button primary">Login</a></li>
                         </ul>
