@@ -5,50 +5,28 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 //Load composer's autoloader
 require 'vendor/autoload.php';
-$db_connection = pg_connect("host=ec2-174-129-241-14.compute-1.amazonaws.com port=5432 dbname=d35s6fdts9mtqe user=crxjiiplfrwncf password=be7126872bcd36c2bc4bde1163ba5a72243fb144652c0e0b110d388e7efee0be");
-// Check connection
-if($db_connection === false){
-    die("ERROR: Could not connect. ");
-}
-if( isset($_POST['Submit']) ){
-	$firstname = $_POST['firstname'];
-	$lastname = $_POST['lastname'];
+if( isset($_POST['submit']) ){
+	$name = $_POST['name'];
 	$email = $_POST['email'];
-	$password = $_POST['password'];
-	$hashed_password = password_hash($password, PASSWORD_DEFAULT);
-	$address = $_POST['address'];
-	$city = $_POST['city'];
-    $state = $_POST['state'];
-    $zipcode = $_POST['zipCode'];
+	$message = $_POST['message'];
 	
-	$getusers = pg_query($db_connection, "SELECT * FROM \"siteUsers\" where email='$email'");
-	$getrows = pg_affected_rows($getusers);
+	$mail = new PHPMailer(TRUE);
+	try{
+	$mail->isSMTP();                                            // Send using SMTP
+	$mail->Host 	  = 'smtp.gmail.com';                  // Set the SMTP server to send through
+	$mail->SMTPAuth   = true;                                   // Enable SMTP authentication
+	$mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
+	$mail->Port       = 587;                                    // TCP port to connect to
 
-	if($getrows >= 1){
-		$txt = "User already exists! Please log in instead!.";
-		echo  $txt ;
-		
-	}
-	else{
-		$query = "INSERT INTO \"siteUsers\" VALUES ('$firstname', '$lastname', '$email', '$hashed_password', '$address', '$city', '$state', '$zipcode')";
-		$result = pg_query($db_connection, $query);
-		
-		$mail = new PHPMailer(TRUE);
-		try{
-	  	$mail->isSMTP();                                            // Send using SMTP
-	  	$mail->Host 	  = 'smtp.gmail.com';                  // Set the SMTP server to send through
-		$mail->SMTPAuth   = true;                                   // Enable SMTP authentication
-		$mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
-		$mail->Port       = 587;                                    // TCP port to connect to
+	$mail->Username   = "ecomm.extraterrestrial@gmail.com";                     // SMTP username
+	$mail->Password   = "AlfWeaver2019";                               // SMTP password
 
-		$mail->Username   = "ecomm.extraterrestrial@gmail.com";                     // SMTP username
-		$mail->Password   = "AlfWeaver2019";                               // SMTP password
-
-        $mail->setFrom('ecomm.extraterrestrial@gmail.com', 'Extraterrestrial');
-        $mail->addAddress($email);
-        $mail->Subject = 'Welcome to Extraterrestrial!';
-        $mail->Body = 'Thanks for opening up your galaxy with Extraterrestrial. We look forward to working on your interplanetary needs!';
-        $mail->send();
+    $email_to_send = "ecomm.extraterrestrial@gmail.com";
+    $mail->setFrom($email_to_send, 'Contact Form Response');
+    $mail->addAddress($email_to_send);
+    $mail->Subject = 'Contact Form Response';
+    $mail->Body = 'New contact form response from ' .$email. ' with message: ' .$message. '';
+    $mail->send();
 		
 	}
 	catch (Exception $e)
@@ -63,11 +41,6 @@ if( isset($_POST['Submit']) ){
  	  }
 		
 	}
-	
-}
-
-// Close connection
-pg_close($db_connection);
 
 ?>
 
@@ -102,7 +75,7 @@ pg_close($db_connection);
                         <li>
                             <a href="about.html">About Us</a>
                         </li>
-                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="contact.php">Contact Us</a></li>
                         <li><a href="products.html">Products</a></li>
                         <li><a href="login.html" class="button primary">Login</a></li>
                     </ul>
@@ -125,12 +98,12 @@ pg_close($db_connection);
                     <h1>Contact Us</h1>
                     <form action="#" method="post">
                         <div class="form_settings">
-                            <p><span>Name</span><input class="contact" type="text" name="your_name" required pattern = "^[a-zA-Z]+$" value = ""  title = "At least one letter, nothing besides letters" /></p>
-                            <p><span>Email Address</span><input class="contact" type="text" name="your_email" required pattern = "^.+@+.+\.+.+$" value = "" title = "At least one @ symbol, at least one . symbol, at least one character, before, after, and between each symbol" /></p>
+                            <p><span>Name</span><input class="contact" type="text" name="name" required pattern = "^[a-zA-Z]+$" value = ""  title = "At least one letter, nothing besides letters" /></p>
+                            <p><span>Email Address</span><input class="contact" type="text" name="email" required pattern = "^.+@+.+\.+.+$" value = "" title = "At least one @ symbol, at least one . symbol, at least one character, before, after, and between each symbol" /></p>
                             <p><span>Message</span><textarea class="contact textarea" rows="8" cols="50"
-                                    name="your_enquiry"></textarea></p>
+                                    name="message"></textarea></p>
                             <p style="padding-top: 15px"><span>&nbsp;</span><input class="submit" type="submit"
-                                    name="contact_submitted" value="submit" /></p>
+                                    name="submit" value="submit" /></p>
                         </div>
                     </form>
                     </li>
