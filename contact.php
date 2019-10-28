@@ -5,7 +5,7 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 //Load composer's autoloader
 require 'vendor/autoload.php';
-if( isset($_POST['Submit']) ){
+if( isset($_POST['submit']) ){
 	$name = $_POST['name'];
 	$email = $_POST['email'];
 	$message = $_POST['message'];
@@ -103,7 +103,7 @@ if( isset($_POST['Submit']) ){
                             <p><span>Message</span><textarea class="contact textarea" rows="8" cols="50"
                                     name="message"></textarea></p>
                             <p style="padding-top: 15px"><span>&nbsp;</span><input class="submit" type="submit"
-                                    name="contact_submitted" value="submit" /></p>
+                                    name="submit" value="submit" /></p>
                         </div>
                     </form>
                     </li>
