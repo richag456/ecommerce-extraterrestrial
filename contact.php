@@ -22,10 +22,10 @@ if( isset($_POST['submit']) ){
 	$mail->Password   = "AlfWeaver2019";                               // SMTP password
 
     $email_to_send = "ecomm.extraterrestrial@gmail.com";
-    $mail->setFrom($email, 'Contact Form Response');
+    $mail->setFrom($email_to_send, 'Contact Form Response');
     $mail->addAddress($email_to_send);
     $mail->Subject = 'Contact Form Response';
-    $mail->Body = $message;
+    $mail->Body = 'New contact form response from' .$email. 'with message: ' .$message. '';
     $mail->send();
 		
 	}
