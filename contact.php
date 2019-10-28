@@ -21,10 +21,11 @@ if( isset($_POST['Submit']) ){
 	$mail->Username   = "ecomm.extraterrestrial@gmail.com";                     // SMTP username
 	$mail->Password   = "AlfWeaver2019";                               // SMTP password
 
-    $mail->setFrom('ecomm.extraterrestrial@gmail.com', 'Contact Form Response');
-    $mail->addAddress("ecomm.extraterrestrial@gmail.com");
+    $email_to_send = "ecomm.extraterrestrial@gmail.com";
+    $mail->setFrom($email, 'Contact Form Response');
+    $mail->addAddress($email_to_send);
     $mail->Subject = 'Contact Form Response';
-    $mail->Body = 'The contact form response is from ' .$email. 'and reads: ' .$message. '.';
+    $mail->Body = $message;
     $mail->send();
 		
 	}
