@@ -37,7 +37,7 @@ if( isset($_POST['Submit']) ){
 		$mail = new PHPMailer(TRUE);
 		try{
 	  	$mail->isSMTP();                                            // Send using SMTP
-	  	$mail->Host 	  = "tls://smtp.gmail.com";                  // Set the SMTP server to send through
+	  	$mail->Host 	  = "smtp.gmail.com";                  // Set the SMTP server to send through
 		$mail->SMTPAuth   = true;                                   // Enable SMTP authentication
 		$mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
 		$mail->Port       = 587;                                    // TCP port to connect to
