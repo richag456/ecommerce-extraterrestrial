@@ -21,7 +21,6 @@ if( isset($_POST['Submit']) ){
     }
     else{
         //command to get hashed password
-        while($row = pg_fetch_assoc($getuser)){
 			$db_password = $getuser->fetch_assoc()["passwordhash"];
             //$db_password = $row['passwordhash'];
             if(strcmp($db_password, $hashed_password) == 0){
@@ -35,7 +34,6 @@ if( isset($_POST['Submit']) ){
                 $txt = "<center><br><br><br><h3>Email or password incorrect, please try again!</h3></center>";
                 echo  $txt ;
             }
-        }
         
 
     }
