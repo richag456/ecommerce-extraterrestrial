@@ -39,7 +39,7 @@ if( isset($_POST['Submit']) ){
 
     }
 
-
+}
 
 // Close connection
 pg_close($db_connection);
