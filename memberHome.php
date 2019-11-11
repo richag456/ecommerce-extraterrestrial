@@ -8,9 +8,7 @@ if($db_connection === false){
     die("ERROR: Could not connect. ");
 }
 
-if(!$_SESSION['isLogged']){
-	header('Location: login.php');
-}
+
 // Close connection
 pg_close($db_connection);
 ?>
