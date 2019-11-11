@@ -15,6 +15,7 @@ if(!$_SESSION['isLogged']){
 if( isset($_POST['Submit']) ){
 	session_unset();
 	session_destroy();
+	header('Location: index.html');
 }
 // Close connection
 pg_close($db_connection);
@@ -94,7 +95,7 @@ pg_close($db_connection);
 									</div>
 								</div>
 							</div>
-							<input type="Submit" value="Logout">  
+							<input type="submit" name="Submit" value="Logout">
 							
 							
 							

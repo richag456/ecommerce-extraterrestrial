@@ -100,7 +100,7 @@ pg_close($db_connection);
 				  
 							<input type="hidden" name="form_submitted" value="1" />
 							
-							<input type="submit" value="Submit">  
+							<input type="submit" name="Submit" value="Submit">
                         
                         <p class="forgot"><a href="#">Forgot Password?</a></p>
                         <p class="forgot"><a href="signup.php">Dont Have an Account? Sign Up!</a></p>
