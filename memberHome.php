@@ -96,7 +96,10 @@ pg_close($db_connection);
 								</div>
 							</div>
 							<!--logout button-->
-							<input type="submit" name="Logout" value="Logout">						
+							<form id="login" action="memberHome.php" method="POST">
+								<input type="hidden" name="form_submitted" value="1" />
+								<input type="submit" name="Logout" value="Logout">
+							</form>
 						</section>
 
 						
