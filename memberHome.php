@@ -95,6 +95,7 @@ pg_close($db_connection);
 									</div>
 								</div>
 							</div>
+							<!--logout button-->
 							<input type="submit" name="Logout" value="Logout">						
 						</section>
 
