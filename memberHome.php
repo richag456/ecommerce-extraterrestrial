@@ -90,7 +90,16 @@ pg_close($db_connection);
 									</div>
 								</div>
 							</div>
-
+							<button onclick="updateButton()" class="button primary">Logout</button>
+							<script>
+							function updateButton() {
+								// remove all session variables
+								session_unset();
+								// destroy the session
+								session_destroy();
+								header('Location: index.html');
+							}
+							</script>
 							
 						</section>
 
