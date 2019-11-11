@@ -91,15 +91,7 @@ pg_close($db_connection);
 								</div>
 							</div>
 							<button onclick="updateButton()" class="button primary">Logout</button>
-							<script>
-							function updateButton() {
-								// remove all session variables
-								session_unset();
-								// destroy the session
-								session_destroy();
-								header('Location: index.html');
-							}
-							</script>
+							
 							
 						</section>
 
@@ -128,6 +120,15 @@ pg_close($db_connection);
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+			<script type = "text/javascript">
+				function updateButton() {
+				// remove all session variables',
+				session_unset();
+				// destroy the session
+				session_destroy();
+				header('Location: index.html');
+				}
+			</script>
 
 	</body>
 </html>
