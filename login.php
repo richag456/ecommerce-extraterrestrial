@@ -76,7 +76,7 @@ pg_close($db_connection);
                   </li>
 				  <li><a href="contact.php">Contact Us</a></li>
 				  <li><a href="products.html">Products</a></li>
-                  <li><a href="login.html" class="button primary">Login</a></li>
+                  <li><a href="login.php" class="button primary">Login</a></li>
               </ul>
           </nav>
       </header>
