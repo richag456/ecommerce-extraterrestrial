@@ -39,6 +39,7 @@ pg_close($db_connection);
           <nav id="nav">
               <ul>
                   <li><a href="index.html">Home</a></li>
+				  <li><a href="memberHome.php">Members</a></li>
                   <li>
                       <a href="about.html">About Us</a>
                   </li>
