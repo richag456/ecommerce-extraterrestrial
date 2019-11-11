@@ -7,6 +7,9 @@ $db_connection = pg_connect("host=ec2-174-129-241-14.compute-1.amazonaws.com por
 if($db_connection === false){
     die("ERROR: Could not connect. ");
 }
+if($_SESSION['isLogged']){
+	header('Location: memberHome.php');
+}
 if( isset($_POST['Submit']) ){
     $email = $_POST['email'];
     $password = $_POST['password'];
