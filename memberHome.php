@@ -8,6 +8,9 @@ if($db_connection === false){
     die("ERROR: Could not connect. ");
 }
 
+if(!$_SESSION['isLogged']){
+	header('Location: login.php');
+}
 
 // Close connection
 pg_close($db_connection);
@@ -91,14 +94,13 @@ pg_close($db_connection);
 							<button onclick="updateButton()" class="button primary">Logout</button>
 							<script>
 							function updateButton() {
-								<?php>
+								<?php
 								// remove all session variables
 								session_unset();
 								// destroy the session
 								session_destroy();
 								header('Location: index.html');
 								?>
-
 							}
 							</script>
 						</section>
