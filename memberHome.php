@@ -12,7 +12,7 @@ if(!$_SESSION['isLogged']){
 	header('Location: login.php');
 }
 
-if( isset($_POST['Submit']) ){
+if( isset($_POST['Logout']) ){
 	session_unset();
 	session_destroy();
 	header('Location: index.html');
@@ -95,10 +95,7 @@ pg_close($db_connection);
 									</div>
 								</div>
 							</div>
-							<input type="submit" name="Submit" value="Logout">
-							
-							
-							
+							<input type="submit" name="Logout" value="Logout">						
 						</section>
 
 						
