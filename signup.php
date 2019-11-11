@@ -1,4 +1,5 @@
 <?php
+session_start();
 // Import PHPMailer classes into the global namespace
 // These must be at the top of your script, not inside a function
 use PHPMailer\PHPMailer\PHPMailer;
@@ -47,7 +48,8 @@ if( isset($_POST['Submit']) ){
         $mail->Subject = 'Welcome to Extraterrestrial!';
         $mail->Body = 'Thanks for opening up your galaxy with Extraterrestrial. We look forward to working on your interplanetary needs!';
         $mail->send();
-		header('Location: products.html');
+		$_SESSION['isLogged'] = true; //set session variable
+		header('Location: memberHome.php');
 		exit();
 	}
 	catch (Exception $e)
@@ -92,12 +94,13 @@ pg_close($db_connection);
                     <nav id="nav">
                         <ul>
                             <li><a href="index.html">Home</a></li>
+							<li><a href="memberHome.php">Members</a></li>
                             <li>
                                 <a href="about.html">About Us</a>
                             </li>
 							<li><a href="contact.php">Contact Us</a></li>
 							<li><a href="products.html">Products</a></li>
-                            <li><a href="login.html" class="button primary">Login</a></li>
+                            <li><a href="login.php" class="button primary">Login</a></li>
                         </ul>
                     </nav>
                 </header>

@@ -72,12 +72,13 @@ if( isset($_POST['submit']) ){
                 <nav id="nav">
                     <ul>
                         <li><a href="index.html">Home</a></li>
+						<li><a href="memberHome.php">Members</a></li>
                         <li>
                             <a href="about.html">About Us</a>
                         </li>
                         <li><a href="contact.php">Contact Us</a></li>
                         <li><a href="products.html">Products</a></li>
-                        <li><a href="login.html" class="button primary">Login</a></li>
+                        <li><a href="login.php" class="button primary">Login</a></li>
                     </ul>
                 </nav>
             </header>

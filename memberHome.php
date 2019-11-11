@@ -7,44 +7,19 @@ $db_connection = pg_connect("host=ec2-174-129-241-14.compute-1.amazonaws.com por
 if($db_connection === false){
     die("ERROR: Could not connect. ");
 }
-if( isset($_POST['Submit']) ){
-    $email = $_POST['email'];
-    $password = $_POST['password'];
-    $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
-    $getuser = pg_query($db_connection, "SELECT * FROM \"siteUsers\" where email='$email'");
-	$getrows = pg_affected_rows($getusers);
-
-    if($getrows < 1){
-		$txt = "<center><br><br><br><h3>No account found, sign up instead!</h3></center>";
-        echo  $txt ;
-    }
-    else{
-        //command to get hashed password
-			$db_password = $getuser->fetch_assoc()["passwordhash"];
-            //$db_password = $row['passwordhash'];
-            if(strcmp($db_password, $hashed_password) == 0){
-                //user inputed correct password
-                $txt = "<center><br><br><br><h3>Welcome back!</h3></center>";
-                echo  $txt ;
-				$_SESSION['isLogged'] = true; //set session variable
-                header('Location: memberHome.php');
-		        exit();
-            }
-            else{
-                $txt = "<center><br><br><br><h3>Email or password incorrect, please try again!</h3></center>";
-                echo  $txt ;
-            }
-        
-
-    }
-
+if(!$_SESSION['isLogged']){
+	header('Location: login.php');
 }
 
+if( isset($_POST['Logout']) ){
+	session_unset();
+	session_destroy();
+	header('Location: index.html');
+}
 // Close connection
 pg_close($db_connection);
 ?>
-
 
 <!DOCTYPE HTML>
 <!--
@@ -54,7 +29,7 @@ pg_close($db_connection);
 -->
 <html>
 	<head>
-		<title>Login Or Sign Up</title>
+		<title>Round-Trip Moon Excursion</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
@@ -74,7 +49,7 @@ pg_close($db_connection);
                   <li>
                       <a href="about.html">About Us</a>
                   </li>
-				  <li><a href="contact.php">Contact Us</a></li>
+				  <li><a href="contact.html">Contact Us</a></li>
 				  <li><a href="products.html">Products</a></li>
                   <li><a href="login.php" class="button primary">Login</a></li>
               </ul>
@@ -84,34 +59,47 @@ pg_close($db_connection);
 			<!-- Main -->
 				<div id="main" class="wrapper style1">
 					<div class="container">
-						<header class="major">
-							<h2>Login</h2>
-							<p>Welcome Back! Login to Continue Your Journey Today!</p>
-						</header>
 
 						<!-- Content -->
-							<section id="content">
-								<a href="#" class="image fit"><img src="images/galaxy2.png"  alt="" /></a>
-								<div class="form">                      
-                      <div id="login"> 
-						<form id="login" action="login.php" method="POST"> 
-							Email: <input type="text" name="email"> <br> 
-							Password:<input type="text" name="password"> 
-				  
-							<input type="hidden" name="form_submitted" value="1" />
-							
-							<input type="submit" name="Submit" value="Submit">
-                        
-                        <p class="forgot"><a href="#">Forgot Password?</a></p>
-                        <p class="forgot"><a href="signup.php">Dont Have an Account? Sign Up!</a></p>
-                    <!--    <button class="button button-primary">Log In</button>-->
-                        
-                        </form>
-              
-                      </div>                    
-              </div> <!-- /form -->
-							</section>
+						<section id="content">
+							<div class="row">
+								<div class="col-4 col-12-xsmall">
+									<figure>
+										<center><img src="images/mars.jpg" width="400" height="400" alt="Image" class="img-fluid"></center>
+									</figure>
+									<a href="products.html" class="button primary fit">Return to Products</a>
+								</div>
+								<div class="col-6 col-12-xsmall">
+									<div class="px-4">
+											<h3><a href="#">Mars Venture</a></h3>
+											<ul class="alt">
+												<li>
+														Visit Mars today! Experience the mysteries and magic of Earth's most friendly neighbor planet.
+													<h4>Details:</h4>
+													<ul>
+														<li>Includes round-trip space travel at a great price.</li>
+														<li>Does NOT include food or lodging.</li>
+													</ul>
+												</li>
+												<li>0.010 BTC</li>
+												<li>
+													<form action="https://test.bitpay.com/checkout" method="post">
+														<input type="hidden" name="action" value="checkout" />
+														<input type="hidden" name="posData" value="" />
+														<input type="hidden" name="data" value="J1lYV+byihsEl55U2HGD2t0AP6dLRKTnE2SQCmP3OVK8CT75S8U0hvGLPzaQUYpNsiyoZ7spHBM1WgtaQuRk2gbRAV6y3igSv3vtUBtrL2GdS8IUarTzlv7wuTlj4cWnIruvdE+WmOV8NQ7kD9ySRQ==" />
+														<input type="image" src="https://test.bitpay.com/cdn/en_US/bp-btn-pay-currencies.svg" name="submit" style="width: 210px" alt="BitPay, the easy way to pay with bitcoins.">
+													</form>
+													<iframe frameBorder="0" scrolling="no" allowtransparency="0" src="https://bitcoinaverage.com/en/widgets?widgetType=conversion&bgcolor=#FFFFFF&bwidth=1&bcolor=#CCCCCC&cstyle=round&fsize=16px&ffamily=arial&fcolor=#000000&bgTransparent=solid&chartStyle=none&lastUpdateTime=none&currency0=USD&total=1" style="width:250px; height:275px; overflow:hidden; background-color:transparent !important;"></iframe>
+												</li>
+											</ul>
+									</div>
+								</div>
+							</div>
+							<!--logout button-->
+							<input type="submit" name="Logout" value="Logout">						
+						</section>
 
+						
 					</div>
 				</div>
 
@@ -125,7 +113,6 @@ pg_close($db_connection);
 						<li>&copy; Extraterrestrial. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
 					</ul>
 				</footer>
-
 		</div>
 
 		<!-- Scripts -->
