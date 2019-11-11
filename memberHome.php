@@ -30,14 +30,14 @@ pg_close($db_connection);
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 		<script type = "text/javascript">
-			<?php
 			function updateButton() {
-			// remove all session variables',
-			session_unset();
-			// destroy the session
-			session_destroy();
-			header('Location: index.html');
-			?>
+				<?php
+					// remove all session variables'
+					session_unset();
+					// destroy the session
+					session_destroy();
+					header('Location: index.html');
+				?>
 			}
 		</script>
 	</head>
