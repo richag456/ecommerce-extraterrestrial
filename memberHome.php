@@ -49,9 +49,8 @@ pg_close($db_connection);
                   <li>
                       <a href="about.html">About Us</a>
                   </li>
-				  <li><a href="contact.html">Contact Us</a></li>
+				  <li><a href="contact.php">Contact Us</a></li>
 				  <li><a href="products.html">Products</a></li>
-                  <li><a href="login.php" class="button primary">Login</a></li>
               </ul>
           </nav>
       </header>
@@ -96,7 +95,7 @@ pg_close($db_connection);
 								</div>
 							</div>
 							<!--logout button-->
-							<form id="login" action="memberHome.php" method="POST">
+							<form id="logout" action="memberHome.php" method="POST">
 								<input type="hidden" name="form_submitted" value="1" />
 								<input type="submit" name="Logout" value="Logout">
 							</form>
