@@ -12,6 +12,10 @@ if(!$_SESSION['isLogged']){
 	header('Location: login.php');
 }
 
+if( isset($_POST['Submit']) ){
+	session_unset();
+	session_destroy();
+}
 // Close connection
 pg_close($db_connection);
 ?>
@@ -29,17 +33,6 @@ pg_close($db_connection);
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-		<script type = "text/javascript">
-			function updateButton() {
-				
-					// remove all session variables'
-					session_unset();
-					// destroy the session
-					session_destroy();
-					header('Location: index.html');
-				
-			}
-		</script>
 	</head>
 	<body class="is-preload">
 		<div id="page-wrapper">
@@ -101,7 +94,7 @@ pg_close($db_connection);
 									</div>
 								</div>
 							</div>
-							<button onclick="updateButton()" class="button primary">Logout</button>
+							<input type="Submit" value="Logout">  
 							
 							
 							
