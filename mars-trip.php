@@ -80,12 +80,14 @@ pg_close($db_connection);
 													<div class = "column">
 														Promo Code: <input type="text" name = "code" value = "">
 													</div>
-													<div class = "column">
+													<div class = "column" style="padding:10px">
 														<form action = "mars-trip.php" method = "POST">
 															<input type="hidden" name="form_submitted" value="1" />
 															<input type="submit" name="Submit" value="Apply Code">
 														</form>
 													</div>
+												</div>
+												<div class="row">
 												</div>
 												<div class = "row">
 													<div class = "column">
