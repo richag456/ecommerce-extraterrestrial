@@ -13,17 +13,23 @@ if( isset($_POST['Submit']) ){
     $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
     $getuser = pg_query($db_connection, "SELECT * FROM \"siteUsers\" where email='$email'");
-	$getrows = pg_affected_rows($getusers);
+	$getrows = pg_affected_rows($getuser);
 
     if($getrows < 1){
 		$txt = "<center><br><br><br><h3>No account found, sign up instead!</h3></center>";
         echo  $txt ;
     }
     else{
-        //command to get hashed password
-			$db_password = $getuser->fetch_assoc()["passwordhash"];
+		//command to get hashed password
+
+			//$db_password = pg_fetch_assoc($getuser)["passwordhash"];
+			$query_password = "SELECT passwordhash FROM \"siteUsers\" where email='$email'";
+			$passwordResult = pg_query($db_connection, $query_password);
+			$row = pg_fetch_row($passwordResult);
+			$db_password = $row[0];
+
             //$db_password = $row['passwordhash'];
-            if(strcmp($db_password, $hashed_password) == 0){
+            if(password_verify($password, $db_password)){
                 //user inputed correct password
                 $txt = "<center><br><br><br><h3>Welcome back!</h3></center>";
                 echo  $txt ;
