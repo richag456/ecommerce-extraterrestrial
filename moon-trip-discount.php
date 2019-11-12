@@ -100,10 +100,10 @@ pg_close($db_connection);
 													<div class = "row">
 														<div class = "column" style="padding:10px">
 															<form action="https://test.bitpay.com/checkout" method="post">
-																<input type="hidden" name="action" value="checkout" />
-																<input type="hidden" name="posData" value="" />
-																<input type="hidden" name="data" value="J1lYV+byihsEl55U2HGD2t0AP6dLRKTnE2SQCmP3OVKvGYkeEFA6M7ecebNelCiOqFX87YPjtmCSZKso+ikgDbG0PCoanUxQezeez5gNMCCDLXH+iH1EM1TzVqBn0i0SF+CVSNfwE9dZz+/OXx1iMzszPkDOU0qgWBlxp+X910M=" />
-																<input type="image" src="https://test.bitpay.com/cdn/en_US/bp-btn-pay-currencies.svg" name="submit" style="width: 210px" alt="BitPay, the easy way to pay with bitcoins.">
+															  <input type="hidden" name="action" value="checkout" />
+															  <input type="hidden" name="posData" value="" />
+															  <input type="hidden" name="data" value="J1lYV+byihsEl55U2HGD2t0AP6dLRKTnE2SQCmP3OVKvGYkeEFA6M7ecebNelCiOrJJQj8pcKjghSi013zB8ee8VIC9H+Z0xDjm9OKpwhaM=" />
+															  <input type="image" src="https://test.bitpay.com/cdn/en_US/bp-btn-pay-currencies.svg" name="submit" style="width: 210px" alt="BitPay, the easy way to pay with bitcoins.">
 															</form>
 														</div>
 														<div class = "column" style="padding:10px">

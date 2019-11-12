@@ -97,11 +97,11 @@ pg_close($db_connection);
 													<div class = "row">
 														<div class = "column" style="padding:10px">
 															<form action="https://test.bitpay.com/checkout" method="post">
-																<input type="hidden" name="action" value="checkout" />
-																<input type="hidden" name="posData" value="" />
-																<input type="hidden" name="data" value="J1lYV+byihsEl55U2HGD2t0AP6dLRKTnE2SQCmP3OVK8CT75S8U0hvGLPzaQUYpN2S/slktW+CiGNnPX1LOS6E0qygaYRL4zFaThzxemJ24/QfNjArmHnFeUeBXsYoQV0bIZ6cELkWVqZTgkuwW0N5spCX97BGbGYq5eDdYFIGs=" />
-																<input type="image" src="https://test.bitpay.com/cdn/en_US/bp-btn-pay-currencies.svg" name="submit" style="width: 210px" alt="BitPay, the easy way to pay with bitcoins.">
-												  			</form>
+															  <input type="hidden" name="action" value="checkout" />
+															  <input type="hidden" name="posData" value="" />
+															  <input type="hidden" name="data" value="J1lYV+byihsEl55U2HGD2t0AP6dLRKTnE2SQCmP3OVKvGYkeEFA6M7ecebNelCiOrJJQj8pcKjghSi013zB8ee8VIC9H+Z0xDjm9OKpwhaM=" />
+															  <input type="image" src="https://test.bitpay.com/cdn/en_US/bp-btn-pay-currencies.svg" name="submit" style="width: 210px" alt="BitPay, the easy way to pay with bitcoins.">
+															</form>
 														</div>
 														<div class = "column" style="padding:10px">
 															<iframe frameBorder="0" scrolling="no" allowtransparency="0" src="https://bitcoinaverage.com/en/widgets?widgetType=conversion&bgcolor=#FFFFFF&bwidth=1&bcolor=#CCCCCC&cstyle=round&fsize=16px&ffamily=arial&fcolor=#000000&bgTransparent=solid&chartStyle=none&lastUpdateTime=none&currency0=USD&total=1" style="width:250px; height:275px; overflow:hidden; background-color:transparent !important;"></iframe>

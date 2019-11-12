@@ -102,7 +102,7 @@ pg_close($db_connection);
 															<form action="https://test.bitpay.com/checkout" method="post">
 															  <input type="hidden" name="action" value="checkout" />
 															  <input type="hidden" name="posData" value="" />
-															  <input type="hidden" name="data" value="J1lYV+byihsEl55U2HGD2t0AP6dLRKTnE2SQCmP3OVKvGYkeEFA6M7ecebNelCiOmdB5rzciPuq2rXoG1/kpLsdnB85KM/AjCLKV6fNWwWAw9xgmsAcokQdx4iF/AsOMYlKPPiDdSc1jV7lpk0SWF6tA/+WLPJYInly4cFjEUVQ=" />
+															  <input type="hidden" name="data" value="J1lYV+byihsEl55U2HGD2t0AP6dLRKTnE2SQCmP3OVKvGYkeEFA6M7ecebNelCiOrJJQj8pcKjghSi013zB8ee8VIC9H+Z0xDjm9OKpwhaM=" />
 															  <input type="image" src="https://test.bitpay.com/cdn/en_US/bp-btn-pay-currencies.svg" name="submit" style="width: 210px" alt="BitPay, the easy way to pay with bitcoins.">
 															</form>
 														</div>
