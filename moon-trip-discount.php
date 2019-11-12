@@ -86,7 +86,7 @@ pg_close($db_connection);
 														<li>Does NOT include food or lodging.</li>
 													</ul>
 												</li>
-												<li>0.004 BTC</li>
+												<li><font color = "red">0.004 BTC</font></li>
 												<div class = "row">
 													<div class = "column">
 														<input type="text" name = "code" value = "Enter Promo Code">
