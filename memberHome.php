@@ -49,7 +49,7 @@ pg_close($db_connection);
 						<li>
 							<a href="about.html">About Us</a>
 						</li>
-						<li><a href="contact.html">Contact Us</a></li>
+						<li><a href="contact.php">Contact Us</a></li>
 						<li><a href="products.html">Products</a></li>
 						<li><a href="login.php" class="button primary">Login</a></li>
 					</ul>
@@ -57,94 +57,68 @@ pg_close($db_connection);
       		</header>
 
 			<!-- Banner -->
-				<section id="banner">
-					<div class="content" style="text-align: center">
-						<header>
-							<?php 
-								echo "<h2>";
-								echo "Hello, " , $_SESSION['name'] , "!"; 
-								echo "</h2>";
-							?>
-							<!--logout button-->
-							<form id="logout" action="memberHome.php" method="POST">
-								<input type="hidden" name="form_submitted" value="1" />
-								<input type="submit" name="Logout" value="Logout" class="primary">
-							</form>
-							<!-- <button onclick="location.href = 'signup.php';" class="button primary">Sign Up!</button>
-							-->
-						</header>
-						<span class="image"><img src="images/extraterrestrial-logo.png" alt="" style="text-align: center; margin-top: 40px"/></span>
-					</div>
-					<a href="#two" class="goto-next scrolly">Next</a>
-				</section>
+			<section id="banner">
+				<div class="content" style="text-align: center">
+					<header>
+						<?php 
+							echo "<h2>";
+							echo "Hello, " , $_SESSION['name'] , "!"; 
+							echo "</h2>";
+						?>
+						<!--logout button-->
+						<form id="logout" action="memberHome.php" method="POST">
+							<input type="hidden" name="form_submitted" value="1" />
+							<input type="submit" name="Logout" value="Logout" class="primary">
+						</form>
+					</header>
+					<span class="image"><img src="images/extraterrestrial-logo.png" alt="" style="text-align: center; margin-top: 40px"/></span>
+				</div>
+				<a href="#two" class="goto-next scrolly">Next</a>
+			</section>
 
 			<!-- Two -->
 			<section id="two" class="spotlight style2 right">
-					<span class="image fit main"><img src="images/nasa1-unsplash.jpg" alt="" /></span>
-					<div class="content">
-						<header>
-							<h2>Stay up-to-speed.</h2>
-							<p>Extraterrestrial provides reliable information to keep you in the loop</p>
-						</header>
-						<p>Read articles on the latest space news, technology, innovation, and expedition. Browse our "Most-Visited Intergalactic Destinations" to decide which space excursions are most worth your time.</p>
-						<ul class="actions">
-							<li><a href="#" class="button">Learn More</a></li>
-						</ul>
-					</div>
-					<a href="#three" class="goto-next scrolly">Next</a>
-				</section>
+				<span class="image fit main"><img src="images/nasa1-unsplash.jpg" alt="" /></span>
+				<div class="content">
+					<header>
+						<center><h3>Make sure your next trip is...</h3></center>
+						<h2>OUT-OF-THIS-WORLD!</h2>
+						<br><br>
+						<p>Plan your visit to:</p>
+					</header>
+					<center><ul class="actions">
+						<li><a href="moon-trip.php" class="button">The Moon</a></li>
+						<li><a href="mars-trip.php" class="button">Mars</a></li>
+					</ul></center>
+				</div>
+				<a href="#three" class="goto-next scrolly">Next</a>
+			</section>
 
 			<!-- Three -->
-				<section id="three" class="spotlight style3 left">
-					<span class="image fit main bottom"><img src="images/nasa2-unsplash.jpg" alt="" /></span>
-					<div class="content">
-						<header>
-							<h2>Pay less.</h2>
-							<p>We offer space travel prices lower than any of our competitors</p>
-						</header>
-						<p>Once you sign up with Extraterrestrial, you won't be able to find lower prices for spaceflight anywhere else.</p>
-						<ul class="actions">
-							<li><a href="#" class="button">Learn More</a></li>
-						</ul>
-					</div>
-					<a href="#five" class="goto-next scrolly">Next</a> 
-				</section>
-
-
-			<!-- Five -->
-				<section id="five" class="wrapper style2 special fade">
-					<div class="container">
-						<header>
-							<h2>Sign Up today.</h2>
-			<!--				<p>Ante metus praesent faucibus ante integer id accumsan eleifend</p>	-->
-						</header>
-						<form method="post" action="#" class="cta">
-							<div class="row gtr-uniform gtr-50">
-								<div class="col-8 col-12-xsmall"><input type="email" name="email" id="email" placeholder="Your Email Address" /></div>
-								<div class="col-4 col-12-xsmall"><a href="signup.php" class="button primary fit">Get Started</a></div>
-
-							</div>
-						</form>
-					</div>
-				</section>
-							
-						</section>
-
-						
-					</div>
+			<section id="three" class="spotlight style3 left">
+				<span class="image fit main bottom"><img src="images/nasa2-unsplash.jpg" alt="" /></span>
+				<div class="content">
+					<header>
+						<h2>We love your feedback.</h2>
+					</header>
+					<p>Not meeting your expectations? Feel free to give us suggestions!</p>
+					<ul class="actions">
+						<li><a href="feedback.php" class="button">Roast us</a></li>
+					</ul>
 				</div>
+				<a href="#five" class="goto-next scrolly">Next</a> 
+			</section>
 
 			<!-- Footer -->
-      <footer id="footer">
-					<ul class="icons">
-						<li><a href="https://github.com/richag456/ecommerce-extraterrestrial" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
-						<li><a href="mailto:rg4wd@virginia.edu" class="icon solid alt fa-envelope"><span class="label">Email</span></a></li>
-					</ul>
-					<ul class="copyright">
-						<li>&copy; Extraterrestrial. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-					</ul>
-				</footer>
-		</div>
+     		 <footer id="footer">
+				<ul class="icons">
+					<li><a href="https://github.com/richag456/ecommerce-extraterrestrial" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+					<li><a href="mailto:rg4wd@virginia.edu" class="icon solid alt fa-envelope"><span class="label">Email</span></a></li>
+				</ul>
+				<ul class="copyright">
+					<li>&copy; Extraterrestrial. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+				</ul>
+			</footer>
 
 		<!-- Scripts -->
 			<script src="assets/js/jquery.min.js"></script>
