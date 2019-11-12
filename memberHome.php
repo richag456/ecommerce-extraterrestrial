@@ -80,7 +80,7 @@ pg_close($db_connection);
 
 			<!-- Two -->
 			<section id="two" class="spotlight style2 right">
-				<span class="image fit main"><img src="images/nasa1-unsplash.jpg" alt="" /></span>
+				<span class="image fit main"><img src="images/mister.jpg" alt="" /></span>
 				<div class="content">
 					<header>
 						<center><h3>Make sure your next trip is...</h3></center>
@@ -98,7 +98,7 @@ pg_close($db_connection);
 
 			<!-- Three -->
 			<section id="three" class="spotlight style3 left">
-				<span class="image fit main bottom"><img src="images/nasa2-unsplash.jpg" alt="" /></span>
+				<span class="image fit main bottom"><img src="images/galaxy4.jpg" alt="" /></span>
 				<div class="content">
 					<header>
 						<h2>We love your feedback.</h2>
