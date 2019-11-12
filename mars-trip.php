@@ -17,6 +17,7 @@ if( isset($_POST['SubmitCode']) ){
 	if(strcmp($user_input, "YEET") == 0){
 		$_SESSION['discountMars'] = true;
 		header('Location: mars-trip-discount.php');
+		exit();
 	}
 }
 // Close connection

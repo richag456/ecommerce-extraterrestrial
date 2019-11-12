@@ -17,6 +17,7 @@ if( isset($_POST['SubmitCode']) ){
 	if(strcmp($user_input, "YEET") == 0){
 		$_SESSION['discountMoon'] = true;
 		header('Location: moon-trip-discount.php');
+		exit();
 	}
 }
 // Close connection
