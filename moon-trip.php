@@ -89,7 +89,7 @@ pg_close($db_connection);
 														<div class = "column">
 																<input type="text" name = "code" value = "Enter Promo Code">
 														</div>
-														<div class = "column" style="padding:10px">
+														<div class = "column">
 																<input type="hidden" name="form_submitted" value="1" />
 																<input type="submit" name="SubmitCode" value="Apply Code">
 														</div>

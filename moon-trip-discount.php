@@ -86,12 +86,12 @@ pg_close($db_connection);
 														<li>Does NOT include food or lodging.</li>
 													</ul>
 												</li>
-												<li>0.004 BTC</li>
+												<li><font color = "red">0.004 BTC</font></li>
 												<div class = "row">
 													<div class = "column">
 														<input type="text" name = "code" value = "Enter Promo Code">
 													</div>
-													<div class = "column" style="padding:10px">
+													<div class = "column">
 														<form action = "moon-trip.php" method = "POST">
 															<input type="hidden" name="form_submitted" value="1" />
 															<input type="submit" name="SubmitCode" value="Apply Code">
