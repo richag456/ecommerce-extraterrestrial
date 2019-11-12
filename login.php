@@ -37,6 +37,13 @@ if( isset($_POST['Submit']) ){
                 $txt = "<center><br><br><br><h3>Welcome back!</h3></center>";
                 echo  $txt ;
 				$_SESSION['isLogged'] = true; //set session variable
+
+				$query_name = "SELECT firstname FROM \"siteUsers\" where email='$email'";
+				$nameResult = pg_query($db_connection, $query_name);
+				$row = pg_fetch_row($nameResult);
+				$db_firstname = $row[0];
+				$_SESSION['name'] = $db_firstname; //set session variable
+
                 header('Location: memberHome.php');
 		        exit();
             }

@@ -49,6 +49,13 @@ if( isset($_POST['Submit']) ){
         $mail->Body = 'Thanks for opening up your galaxy with Extraterrestrial. We look forward to working on your interplanetary needs!';
         $mail->send();
 		$_SESSION['isLogged'] = true; //set session variable
+		
+		$query_name = "SELECT firstname FROM \"siteUsers\" where email='$email'";
+		$nameResult = pg_query($db_connection, $query_name);
+		$row = pg_fetch_row($nameResult);
+		$db_firstname = $row[0];
+		$_SESSION['name'] = $db_firstname; //set session variable
+		
 		header('Location: memberHome.php');
 		exit();
 	}
