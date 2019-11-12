@@ -104,6 +104,7 @@ pg_close($db_connection);
 															  <input type="hidden" name="posData" value="" />
 															  <input type="hidden" name="data" value="J1lYV+byihsEl55U2HGD2t0AP6dLRKTnE2SQCmP3OVKvGYkeEFA6M7ecebNelCiOrJJQj8pcKjghSi013zB8ee8VIC9H+Z0xDjm9OKpwhaM=" />
 															  <input type="image" src="https://test.bitpay.com/cdn/en_US/bp-btn-pay-currencies.svg" name="submit" style="width: 210px" alt="BitPay, the easy way to pay with bitcoins.">
+															  <script src="https://bitpay.com/bitpay.min.js"></script>
 															</form>
 														</div>
 														<div class = "column" style="padding:10px">
