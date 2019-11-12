@@ -14,7 +14,7 @@ if(!$_SESSION['isLogged']){
 
 if( isset($_POST['SubmitCode']) ){
 	$user_input = $_POST['code'];
-	echo"pressed";
+	echo"<br><br><br>pressed";
 	if(strcmp($user_input, "YEET") == 0){
 		echo "comp done";
 		$_SESSION['discountMars'] = true;
