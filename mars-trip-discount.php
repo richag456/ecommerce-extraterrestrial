@@ -12,6 +12,10 @@ if(!$_SESSION['isLogged']){
 	header('Location: login.php');
 }
 
+if(!$_SESSION['discountMars']){
+	header('Location: mars-trip.php');
+}
+
 if( isset($_POST['SubmitCode']) ){
 	$user_input = $_POST['code'];
 	if(strcmp($user_input, "YEET") == 0){
@@ -82,7 +86,7 @@ pg_close($db_connection);
 														<li>Does NOT include food or lodging.</li>
 													</ul>
 												</li>
-												<li>0.010 BTC</li>
+												<li>0.008 BTC</li>
 												<div class = "row">
 													<div class = "column">
 														<input type="text" name = "code" value = "Enter Promo Code">
