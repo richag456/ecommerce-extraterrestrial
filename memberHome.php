@@ -29,16 +29,17 @@ pg_close($db_connection);
 -->
 <html>
 	<head>
-		<title>Round-Trip Moon Excursion</title>
+		<title>Member Homepage</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 	</head>
-	<body class="is-preload">
+	<body class="is-preload landing">
 		<div id="page-wrapper">
 
 			<!-- Header -->
+<<<<<<< Updated upstream
       <header id="header">
           <img src="images/extraterrestrial-logo-transparent.png" style="margin-top: 5px; margin-right: 5px" width="70" height="50"/>
           <h1 id="logo" style="margin-left:50px"><a href="index.html">Extraterrestrial</a></h1>
@@ -58,47 +59,97 @@ pg_close($db_connection);
 			<!-- Main -->
 				<div id="main" class="wrapper style1">
 					<div class="container">
+=======
+      		<header id="header">
+          		<img src="images/extraterrestrial-logo-transparent.png" style="margin-top: 5px; margin-right: 5px" width="70" height="50"/>
+          		<h1 id="logo" style="margin-left:50px"><a href="memberHome.php">Extraterrestrial</a></h1>
+          		<nav id="nav">
+              		<ul>
+                  		<li><a href="index.html">Home</a></li>
+						<li><a href="memberHome.php">Members</a></li>
+						<li>
+							<a href="about.html">About Us</a>
+						</li>
+						<li><a href="contact.html">Contact Us</a></li>
+						<li><a href="products.html">Products</a></li>
+						<li><a href="login.php" class="button primary">Login</a></li>
+					</ul>
+         		</nav>
+      		</header>
+>>>>>>> Stashed changes
 
-						<!-- Content -->
-						<section id="content">
-							<div class="row">
-								<div class="col-4 col-12-xsmall">
-									<figure>
-										<center><img src="images/mars.jpg" width="400" height="400" alt="Image" class="img-fluid"></center>
-									</figure>
-									<a href="products.html" class="button primary fit">Return to Products</a>
-								</div>
-								<div class="col-6 col-12-xsmall">
-									<div class="px-4">
-											<h3><a href="#">Mars Venture</a></h3>
-											<ul class="alt">
-												<li>
-														Visit Mars today! Experience the mysteries and magic of Earth's most friendly neighbor planet.
-													<h4>Details:</h4>
-													<ul>
-														<li>Includes round-trip space travel at a great price.</li>
-														<li>Does NOT include food or lodging.</li>
-													</ul>
-												</li>
-												<li>0.010 BTC</li>
-												<li>
-													<form action="https://test.bitpay.com/checkout" method="post">
-														<input type="hidden" name="action" value="checkout" />
-														<input type="hidden" name="posData" value="" />
-														<input type="hidden" name="data" value="J1lYV+byihsEl55U2HGD2t0AP6dLRKTnE2SQCmP3OVK8CT75S8U0hvGLPzaQUYpNsiyoZ7spHBM1WgtaQuRk2gbRAV6y3igSv3vtUBtrL2GdS8IUarTzlv7wuTlj4cWnIruvdE+WmOV8NQ7kD9ySRQ==" />
-														<input type="image" src="https://test.bitpay.com/cdn/en_US/bp-btn-pay-currencies.svg" name="submit" style="width: 210px" alt="BitPay, the easy way to pay with bitcoins.">
-													</form>
-													<iframe frameBorder="0" scrolling="no" allowtransparency="0" src="https://bitcoinaverage.com/en/widgets?widgetType=conversion&bgcolor=#FFFFFF&bwidth=1&bcolor=#CCCCCC&cstyle=round&fsize=16px&ffamily=arial&fcolor=#000000&bgTransparent=solid&chartStyle=none&lastUpdateTime=none&currency0=USD&total=1" style="width:250px; height:275px; overflow:hidden; background-color:transparent !important;"></iframe>
-												</li>
-											</ul>
-									</div>
-								</div>
-							</div>
+			<!-- Banner -->
+				<section id="banner">
+					<div class="content" style="text-align: center">
+						<header>
+							<?php 
+								echo "<h2>";
+								echo "Hello, " , $_SESSION['name'] , "!"; 
+								echo "</h2>";
+							?>
 							<!--logout button-->
 							<form id="logout" action="memberHome.php" method="POST">
 								<input type="hidden" name="form_submitted" value="1" />
-								<input type="submit" name="Logout" value="Logout">
+								<input type="submit" name="Logout" value="Logout" class="primary">
 							</form>
+							<!-- <button onclick="location.href = 'signup.php';" class="button primary">Sign Up!</button>
+							-->
+						</header>
+						<span class="image"><img src="images/extraterrestrial-logo.png" alt="" style="text-align: center; margin-top: 40px"/></span>
+					</div>
+					<a href="#two" class="goto-next scrolly">Next</a>
+				</section>
+
+			<!-- Two -->
+			<section id="two" class="spotlight style2 right">
+					<span class="image fit main"><img src="images/nasa1-unsplash.jpg" alt="" /></span>
+					<div class="content">
+						<header>
+							<h2>Stay up-to-speed.</h2>
+							<p>Extraterrestrial provides reliable information to keep you in the loop</p>
+						</header>
+						<p>Read articles on the latest space news, technology, innovation, and expedition. Browse our "Most-Visited Intergalactic Destinations" to decide which space excursions are most worth your time.</p>
+						<ul class="actions">
+							<li><a href="#" class="button">Learn More</a></li>
+						</ul>
+					</div>
+					<a href="#three" class="goto-next scrolly">Next</a>
+				</section>
+
+			<!-- Three -->
+				<section id="three" class="spotlight style3 left">
+					<span class="image fit main bottom"><img src="images/nasa2-unsplash.jpg" alt="" /></span>
+					<div class="content">
+						<header>
+							<h2>Pay less.</h2>
+							<p>We offer space travel prices lower than any of our competitors</p>
+						</header>
+						<p>Once you sign up with Extraterrestrial, you won't be able to find lower prices for spaceflight anywhere else.</p>
+						<ul class="actions">
+							<li><a href="#" class="button">Learn More</a></li>
+						</ul>
+					</div>
+					<a href="#five" class="goto-next scrolly">Next</a> 
+				</section>
+
+
+			<!-- Five -->
+				<section id="five" class="wrapper style2 special fade">
+					<div class="container">
+						<header>
+							<h2>Sign Up today.</h2>
+			<!--				<p>Ante metus praesent faucibus ante integer id accumsan eleifend</p>	-->
+						</header>
+						<form method="post" action="#" class="cta">
+							<div class="row gtr-uniform gtr-50">
+								<div class="col-8 col-12-xsmall"><input type="email" name="email" id="email" placeholder="Your Email Address" /></div>
+								<div class="col-4 col-12-xsmall"><a href="signup.php" class="button primary fit">Get Started</a></div>
+
+							</div>
+						</form>
+					</div>
+				</section>
+							
 						</section>
 
 						
