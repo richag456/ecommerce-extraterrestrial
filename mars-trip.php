@@ -11,6 +11,18 @@ if($db_connection === false){
 if(!$_SESSION['isLogged']){
 	header('Location: login.php');
 }
+
+if( isset($_POST['SubmitCode']) ){
+	$user_input = $_POST['code'];
+	echo"<br><br><br>pressed";
+	echo "<br><br><br><br>",$user_input;
+	if(strcmp($user_input, "YEET") == 0){
+		echo "<br><br><br>comp done";
+		$_SESSION['discountMars'] = true;
+		header('Location: mars-trip-discount.php');
+		exit();
+	}
+}
 // Close connection
 pg_close($db_connection);
 ?>
@@ -45,7 +57,6 @@ pg_close($db_connection);
                   </li>
 				  <li><a href="contact.php">Contact Us</a></li>
 				  <li><a href="products.html">Products</a></li>
-                  <li><a href="login.php" class="button primary">Login</a></li>
               </ul>
           </nav>
       </header>
@@ -78,16 +89,14 @@ pg_close($db_connection);
 												<li>0.010 BTC</li>
 												<div class = "row">
 													<div class = "column">
-														Promo Code: <input type="text" name = "code" value = "">
+														<input type="text" name = "code" value = "Enter Promo Code">
 													</div>
 													<div class = "column" style="padding:10px">
 														<form action = "mars-trip.php" method = "POST">
 															<input type="hidden" name="form_submitted" value="1" />
-															<input type="submit" name="Submit" value="Apply Code">
+															<input type="submit" name="SubmitCode" value="Apply Code">
 														</form>
 													</div>
-												</div>
-												<div class="row">
 												</div>
 												<div class = "row">
 													<div class = "column">
@@ -98,7 +107,7 @@ pg_close($db_connection);
 															<input type="image" src="https://test.bitpay.com/cdn/en_US/bp-btn-pay-currencies.svg" name="submit" style="width: 210px" alt="BitPay, the easy way to pay with bitcoins.">
 														</form>	
 													</div>
-													<div class = "column">
+													<div class = "column" style="padding:10px">
 														<iframe frameBorder="0" scrolling="no" allowtransparency="0" src="https://bitcoinaverage.com/en/widgets?widgetType=conversion&bgcolor=#FFFFFF&bwidth=1&bcolor=#CCCCCC&cstyle=round&fsize=16px&ffamily=arial&fcolor=#000000&bgTransparent=solid&chartStyle=none&lastUpdateTime=none&currency0=USD&total=1" style="width:250px; height:275px; overflow:hidden; background-color:transparent !important;"></iframe>
 													</div>
 												</div>
