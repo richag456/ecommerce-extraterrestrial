@@ -97,7 +97,7 @@ pg_close($db_connection);
 																<input type="submit" name="SubmitCode" value="Apply Code">
 														</div>
 													</div>
-													<div class = "row"  style="padding: 50px">
+													<div class = "row">
 														<div class = "column" style="padding:10px">
 															<form action="https://test.bitpay.com/checkout" method="post">
 															  <input type="hidden" name="action" value="checkout" />
