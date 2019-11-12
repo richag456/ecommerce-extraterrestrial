@@ -14,8 +14,8 @@ if(!$_SESSION['isLogged']){
 
 if( isset($_POST['SubmitCode']) ){
 	$user_input = $_POST['code'];
-	echo"<br><br><br>pressed";
-	echo "<br><br><br><br>",$user_input;
+	//echo"<br><br><br>pressed";
+	//echo "<br><br><br><br>",$user_input;
 	if(strcmp($user_input, "YEET") == 0){
 		echo "<br><br><br>comp done";
 		$_SESSION['discountMars'] = true;
@@ -92,7 +92,7 @@ pg_close($db_connection);
 														<div class = "column">
 																<input type="text" name = "code" value = "Enter Promo Code">
 														</div>
-														<div class = "column" style="padding:10px">
+														<div class = "column">
 																<input type="hidden" name="form_submitted" value="1" />
 																<input type="submit" name="SubmitCode" value="Apply Code">
 														</div>
