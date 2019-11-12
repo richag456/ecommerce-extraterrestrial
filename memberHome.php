@@ -39,27 +39,6 @@ pg_close($db_connection);
 		<div id="page-wrapper">
 
 			<!-- Header -->
-<<<<<<< Updated upstream
-      <header id="header">
-          <img src="images/extraterrestrial-logo-transparent.png" style="margin-top: 5px; margin-right: 5px" width="70" height="50"/>
-          <h1 id="logo" style="margin-left:50px"><a href="index.html">Extraterrestrial</a></h1>
-          <nav id="nav">
-              <ul>
-                  <li><a href="index.html">Home</a></li>
-				  <li><a href="memberHome.php">Members</a></li>
-                  <li>
-                      <a href="about.html">About Us</a>
-                  </li>
-				  <li><a href="contact.php">Contact Us</a></li>
-				  <li><a href="products.html">Products</a></li>
-              </ul>
-          </nav>
-      </header>
-
-			<!-- Main -->
-				<div id="main" class="wrapper style1">
-					<div class="container">
-=======
       		<header id="header">
           		<img src="images/extraterrestrial-logo-transparent.png" style="margin-top: 5px; margin-right: 5px" width="70" height="50"/>
           		<h1 id="logo" style="margin-left:50px"><a href="memberHome.php">Extraterrestrial</a></h1>
@@ -76,7 +55,6 @@ pg_close($db_connection);
 					</ul>
          		</nav>
       		</header>
->>>>>>> Stashed changes
 
 			<!-- Banner -->
 				<section id="banner">
