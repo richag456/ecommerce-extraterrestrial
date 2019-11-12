@@ -86,7 +86,9 @@ pg_close($db_connection);
 												<li>0.005 BTC</li>
 												<div class = "row">
 													<div class = "column">
-														<input type="text" name = "code" value = "Enter Promo Code">
+														<form action = "moon-trip.php" method = "POST">
+															<input type="text" name = "code" value = "Enter Promo Code">
+														</form>
 													</div>
 													<div class = "column" style="padding:10px">
 														<form action = "moon-trip.php" method = "POST">
