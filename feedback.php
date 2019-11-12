@@ -25,9 +25,11 @@ if( isset($_POST['submit']) ){
     $mail->setFrom($email_to_send, 'Feedback');
     $mail->addAddress($email_to_send);
     $mail->Subject = 'Feedback';
-    $mail->Body = 'New feedback from ' .$email. ' with message: ' .$message. '';
+    $mail->Body = 'New feedback from ' .$email. ' with message: ' .$feedback. '';
     $mail->send();
-		
+    
+    header('Location: memberHome.php');
+	exit();
 	}
 	catch (Exception $e)
        {
