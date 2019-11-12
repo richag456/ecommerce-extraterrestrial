@@ -15,8 +15,9 @@ if(!$_SESSION['isLogged']){
 if( isset($_POST['SubmitCode']) ){
 	$user_input = $_POST['code'];
 	echo"<br><br><br>pressed";
+	echo "<br><br><br><br>",$user_input;
 	if(strcmp($user_input, "YEET") == 0){
-		echo "comp done";
+		echo "<br><br><br>comp done";
 		$_SESSION['discountMars'] = true;
 		header('Location: mars-trip-discount.php');
 		exit();
