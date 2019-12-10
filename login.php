@@ -15,7 +15,7 @@ if( isset($_POST['Submit']) ){
     $password = $_POST['password'];
     $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
-    $getuser = pg_query($db_connection, "SELECT * FROM \"siteUsers\" where email='$email'");
+    $getuser = pg_query($db_connection, "SELECT * from \"siteUsers\" WHERE email='$email'");
 	$getrows = pg_affected_rows($getuser);
 
     if($getrows < 1){

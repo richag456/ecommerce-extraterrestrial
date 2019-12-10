@@ -17,7 +17,7 @@ if(!$_SESSION['discountMars']){
 }
 
 if( isset($_POST['SubmitCode']) ){
-	$user_input = $_POST['code'];
+	$user_input2 = $_POST['code'];
 	if(strcmp($user_input, "YEET") == 0){
 		$_SESSION['discountMars'] = true;
 		header('Location: mars-trip-discount.php');
